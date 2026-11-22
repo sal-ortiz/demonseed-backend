@@ -26,7 +26,7 @@ app.post('/api/visitor', (req, res) => {
 
   let visitor = new Visitor(req.ip, agent);
 
-  visitor.addVisit(params.start, params.end);
+  visitor.addVisit(params.start, params.end, params.dest);
   visitor.save();
 
   res.status(200).json(visitor);

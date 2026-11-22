@@ -15,8 +15,8 @@ class Visitor extends Model {
     this.visits = data['visits'] || [];
   }
 
-  addVisit(start, end) {
-    let visit = new Visit(start, end);
+  addVisit(start, end, exit) {
+    let visit = new Visit(start, end, exit);
 
     this.visits.push(visit);
   }
