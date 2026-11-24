@@ -7,7 +7,7 @@ const AppRoot = require('app-root-path');
 const Stats = require('./app/stats.js');
 
 const app = Express();
-const port = 3000;
+const port = 60606;
 
 app.use(CORS());
 //app.use(cors(
@@ -20,7 +20,7 @@ app.use(Express.json());
 
 global.STATS_FILENAME = AppRoot.resolve('data.json');
 
-app.post('/api/visitor', (req, res) => {
+app.post('/visitor', (req, res) => {
   const agent = req.get('User-Agent');
   const params = req.body;
 
@@ -32,7 +32,7 @@ app.post('/api/visitor', (req, res) => {
   res.status(200).json(visitor);
 });
 
-app.get('/api/visitor/stats', (req, res) => {
+app.get('/visitor/stats', (req, res) => {
   const stats = Stats.load(global.STATS_FILENAME);
 
   res.status(200).json(stats);
